@@ -20,7 +20,7 @@ A full-stack Job Portal application built using the MERN stack. This project sup
 
 ### Student Jobs Page
 
-![Jobs Page](./screenshots/jobs.png)
+![Jobs Page](./screenshots/Jobs.png)
 
 ### Job Details Page
 
