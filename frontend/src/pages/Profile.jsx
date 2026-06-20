@@ -154,7 +154,7 @@ function Profile() {
 
           <div className="file-box">
             <label>Upload New Resume</label>
-            <input type="file" accept=".pdf,.doc,.docx" onChange={fileHandler} />
+            <input type="file" accept=".pdf" onChange={fileHandler} />  
           </div>
 
           <button className="profile-btn" type="submit">

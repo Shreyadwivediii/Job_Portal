@@ -1,4 +1,3 @@
-import cloudinary from "../utils/cloudinary.js";
 import uploadResume from "../utils/uploadResume.js";
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
@@ -105,8 +104,9 @@ export const login = async (req, res) => {
       .cookie("token", token, {
         maxAge: 24 * 60 * 60 * 1000,
         httpOnly: true,
-        sameSite: "lax",
-      })
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        })
       .json({
         message: `Welcome back ${user.fullname}`,
         user,
@@ -128,8 +128,9 @@ export const logout = async (req, res) => {
       .cookie("token", "", {
         maxAge: 0,
         httpOnly: true,
-        sameSite: "lax",
-      })
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+        })
       .json({
         message: "Logged out successfully",
         success: true,
